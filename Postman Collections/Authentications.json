@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "b418171f-a24a-4332-a9f1-803d6e5a6667",
+		"name": "Authentications",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "BasicAuth",
+			"_postman_id": "e4610145-4261-4651-abdc-645b6f7ac36c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "password",
+						"username": "postman"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://postman-echo.com/basic-auth"
+			},
+			"response": []
+		},
+		{
+			"name": "BasicAuth II",
+			"_postman_id": "16f89f89-0222-4e80-9b76-84ee432954d7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "admin",
+						"username": "admin"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://the-internet.herokuapp.com/basic_auth"
+			},
+			"response": []
+		},
+		{
+			"name": "DigestAuth",
+			"_postman_id": "6ee1a835-1e3b-4d3a-a43b-746189731751",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "digest",
+					"digest": {
+						"password": "password",
+						"username": "postman",
+						"algorithm": "MD5"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://postman-echo.com/basic-auth"
+			},
+			"response": []
+		},
+		{
+			"name": "BearerTokenAuth_Github",
+			"_postman_id": "bca488a4-d9d8-4539-ae87-cfecb094d0d9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "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"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://api.github.com/user/repos"
+			},
+			"response": []
+		}
+	]
+}
