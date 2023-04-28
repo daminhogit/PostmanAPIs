@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "54eb396c-c83c-4ea6-81da-8ed44826a2a6",
+		"name": "GorestAPI-Chaining",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateUser",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "1520e14a-0d56-4bd7-a4a4-6108fd1bf8be",
+						"exec": [
+							"//generating random values using variable\r",
+							"\r",
+							"var random=Math.random().toString(36).substring(2); //code script in java\r",
+							"\r",
+							"var useremail=\"jim\"+random+\"@gmail.com\";\r",
+							"var username=\"jim\"+random;\r",
+							"pm.environment.set(\"email_env\", useremail);\r",
+							"pm.environment.set(\"name_env\", username);\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ef441ef1-1323-4a90-ae36-28910102de37",
+						"exec": [
+							"var jsonData=JSON.parse(responseBody);\r",
+							"pm.environment.set(\"userid_env\", jsonData.id);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "be9604a1-cb8e-46a3-a4d2-beb38f6073c2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"{{name_env}}\",\r\n\"gender\": \"male\",\r\n\"email\": \"{{email_env}}\",\r\n\"status\": \"inactive\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://gorest.co.in/public/v2/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6aadb738-6c64-4772-bc22-1cb4558ab466",
+						"exec": [
+							"//validating fields in the repsonse\r",
+							"\r",
+							"pm.test(\"values of json fields\", () => {\r",
+							"    var jsonData=pm.response.json();\r",
+							"\r",
+							"pm.expect(jsonData.id).to.eql(pm.environment.get(\"userid_env\"));\r",
+							"pm.expect(jsonData.email).to.eql(pm.environment.get(\"email_env\"));\r",
+							"pm.expect(jsonData.name).to.eql(pm.environment.get(\"name_env\"));\r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "a0b72098-43ee-407b-b976-967994dac236",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": "https://gorest.co.in/public/v2/users/{{userid_env}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Details",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bdeef333-b623-4fae-b065-10a6bdbe2f5b",
+						"exec": [
+							"var random=Math.random().toString(36).substring(2); //code script in java\r",
+							"\r",
+							"var useremail=\"jim\"+random+\"@gmail.com\";\r",
+							"var username=\"jim\"+random;\r",
+							"pm.environment.set(\"email_env\", useremail);\r",
+							"pm.environment.set(\"name_env\", username);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "d27a05fe-4ee9-4900-b69a-2fe77c06e498",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"{{name_env}}\",\r\n\"email\": \"{{email_env}}\",\r\n\"status\": \"active\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://gorest.co.in/public/v2/users/{{userid_env}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"_postman_id": "ab2035b0-a1e8-4309-ba1b-34d7854144be",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "https://gorest.co.in/public/v2/users/{{userid_env}}"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "129ab288dfac56b2941d56c01cf378e91265fb7d6b017fbbc70bc628c73f8bf6"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e52ea034-a103-4285-91be-f40608a53958",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f4a548b5-111c-40d2-9321-4a22791cde78",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
