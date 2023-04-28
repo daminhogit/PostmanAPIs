@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "002490e3-3125-4b70-bc52-046d46a36bf0",
+		"name": "FileUpload",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SingleFileUpload",
+			"_postman_id": "8f24c0e3-b69a-495e-87cd-8e507cc8a883",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/K:/Software testing-QA/Text1.txt"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": "http://localhost:8080/uploadFile"
+			},
+			"response": []
+		},
+		{
+			"name": "MultipleFilesUpload",
+			"_postman_id": "fdacd242-e370-42cd-961b-5902b2671f22",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/K:/Software testing-QA/Text1.txt"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": "http://localhost:8080/uploadFile"
+			},
+			"response": []
+		}
+	]
+}
