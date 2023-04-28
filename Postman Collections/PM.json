@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "cd64ea6a-2695-4cdf-b525-2d7ab64aeba3",
+		"name": "WorkFlow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "myFolder",
+			"item": [
+				{
+					"name": "GETRequest",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0b41b374-47ea-46cd-9248-4ff83c34e4db",
+								"exec": [
+									"console.log(\"prerequest script at request level\") //This is similar to \"system.out.println() in java\""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "62b0ab28-b63d-4da8-bcd6-1a7a7c92b772",
+								"exec": [
+									"console.log(\"Test script at request level\") //This is similar to \"system.out.println() in java\""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "20af6c00-dc13-49f5-a687-b02ea279346e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://reqres.in/api/users?page=2",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "db2450d8-060c-4c62-b274-abc96be4dfcd",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5ab1126c-63ad-4148-9012-54d15a7b52df",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(\"prerequest script at folder level\") //This is similar to \"system.out.println() in java\""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "cabd7112-f2eb-437a-ac43-99b73b144dbc",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(\"Test script at folder level\") //This is similar to \"system.out.println() in java\""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ca557bb8-8b31-4d4b-845c-d32a4e1fd498",
+				"type": "text/javascript",
+				"exec": [
+					"console.log(\"prerequest script at collection level\") //This is similar to \"system.out.println() in java\""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "496c4dc2-f091-4a6f-90c0-7e06b8057db6",
+				"type": "text/javascript",
+				"exec": [
+					"console.log(\"Test script at collection level\") //This is similar to \"system.out.println() in java\""
+				]
+			}
+		}
+	]
+}
