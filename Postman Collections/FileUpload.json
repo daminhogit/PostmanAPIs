@@ -7,7 +7,7 @@
 	"item": [
 		{
 			"name": "SingleFileUpload",
-			"_postman_id": "8f24c0e3-b69a-495e-87cd-8e507cc8a883",
+			"id": "8f24c0e3-b69a-495e-87cd-8e507cc8a883",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -22,10 +22,7 @@
 							"type": "file",
 							"src": "/K:/Software testing-QA/Text1.txt"
 						}
-					],
-					"options": {
-						"formdata": {}
-					}
+					]
 				},
 				"url": "http://localhost:8080/uploadFile"
 			},
@@ -33,7 +30,7 @@
 		},
 		{
 			"name": "MultipleFilesUpload",
-			"_postman_id": "fdacd242-e370-42cd-961b-5902b2671f22",
+			"id": "fdacd242-e370-42cd-961b-5902b2671f22",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -44,16 +41,16 @@
 					"mode": "formdata",
 					"formdata": [
 						{
-							"key": "file",
+							"key": "files",
 							"type": "file",
-							"src": "/K:/Software testing-QA/Text1.txt"
+							"src": [
+								"/K:/Software testing-QA/Test2.txt",
+								"/K:/Software testing-QA/Text1.txt"
+							]
 						}
-					],
-					"options": {
-						"formdata": {}
-					}
+					]
 				},
-				"url": "http://localhost:8080/uploadFile"
+				"url": "http://localhost:8080/uploadMultipleFiles"
 			},
 			"response": []
 		}
